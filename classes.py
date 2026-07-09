@@ -39,8 +39,17 @@ class Board:
         self.spots[index]=letter
     
     def check_win(self,letter):
+        """Checks if the given letter has made any of the winning combinations."""
 
         for combo in self.wincons:
             if self.spots[combo[0]] == letter and self.spots[combo[1]] == letter and self.spots[combo[2]] == letter:
                 return True
             return False
+    
+class Player:
+    """Representing the player. you the person playing the game"""
+
+    def __init__(self, name, letter):
+        """Makes the player with their name and chosen letter"""
+        self.name = name
+        self.letter = letter
