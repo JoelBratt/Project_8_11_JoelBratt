@@ -44,7 +44,7 @@ class Board:
         for combo in self.wincons:
             if self.spots[combo[0]] == letter and self.spots[combo[1]] == letter and self.spots[combo[2]] == letter:
                 return True
-            return False
+        return False
     
 class Player:
     """Representing the player. you the person playing the game"""
