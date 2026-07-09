@@ -33,3 +33,14 @@ class Board:
     def get_open_spots(self):
         """Returns the positions on the board that are yet to be taken"""
         return [spot for spot in self.spots if isinstance(spot, int)]
+    
+    def update_spot(self, index, letter):
+        """Turns a specific spot within the spots list to players letter"""
+        self.spots[index]=letter
+    
+    def check_win(self,letter):
+
+        for combo in self.wincons:
+            if self.spots[combo[0]] == letter and self.spots[combo[1]] == letter and self.spots[combo[2]] == letter:
+                return True
+            return False
