@@ -53,3 +53,17 @@ class Player:
         """Makes the player with their name and chosen letter"""
         self.name = name
         self.letter = letter
+
+class CPU(Player):
+    """Subclass of the player. Representing the CPU."""
+
+    def __init__(self, name, letter):
+        """Makes the CPU by calling the parent class constructor."""
+        super().__init__(name, letter)
+    
+    def pick_spot(self, open_spots):
+        """randomly picks an open spot from the board for the CPU"""
+        if open_spots:
+            return random.choice(open_spots)
+        return None
+
