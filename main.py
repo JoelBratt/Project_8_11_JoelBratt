@@ -50,4 +50,30 @@ def main():
             "catches runtime error if int() fails"
             print("Invalid input! You must type an integer number")
             continue
+
+        """Validate player move"""
+        game_board.update_spot(current_pick - 1, human.letter)
+
+        """checks win"""
+        if game_board.check_win(human.letter):
+            game_board.display()
+            print('You Win!!!')
+            scores["Player"] += 1
+            break
+
+        """CPU Turn"""
+        open_spots = game_board.get_open_spots()
+        if len(open_spots) > 0:
+            print("\n The Computer is Picking a spot...")
+            cpu_choice = cpu.pick_spot(open_spots)
+            game_board.update_spot(cpu_choice -1, cpu.letter)
+
+            """win check for cpu"""
+            if game_board.check_win(cpu.letter):
+                game_board.display()
+                print("Computer Wins...")
+                scores["CPU"] += 1
+                break
+
+    
     
