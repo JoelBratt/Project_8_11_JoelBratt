@@ -74,6 +74,17 @@ def main():
                 print("Computer Wins...")
                 scores["CPU"] += 1
                 break
-
+    else:
+        """if loop finishes without a break they tied"""
+        game_board.display()
+        print("It's a Tie!")
+        scores["Ties"] += 1
     
+    """Saves the updated scores to JSON"""
+    scoreboard.save_scores(scores)
+    print("Scores have been saved")
+    scoreboard.display_scoreboard(scores)
+
+if __name__ == "__main__":
+    main()
     
