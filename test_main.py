@@ -28,6 +28,15 @@ class testlogic(unittest.TestCase):
         self.board.spots[0] = "X"
         self.board.spots[1] = "X"
         self.board.spots[2] = "X"
+    
+    def test_vertical_win_1_4_7(self):
+        """Test that the board correctly identifies a vertical win at 1, 4, 7."""
+    
+        self.board.spots[0] = "X"
+        self.board.spots[3] = "X"
+        self.board.spots[6] = "X"
+        
+        self.assertTrue(self.board.check_win("X"), "Vertical win 1,4,7 failed to trigger!")
 
     def test_cpu_random_choice(self):
         """Test that the CPU picks a valid spot from the list."""
